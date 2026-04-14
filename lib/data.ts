@@ -64,10 +64,10 @@ export const projects: Project[] = [
   {
     id: '3',
     title: 'OpenVerse',
-    description: 'Full-Stack Blog Platform - Complete CRUD functionality with Arcjet authentication and rate protection',
-    technologies: ['Next.js', 'MongoDB', 'Arcjet', 'Tailwind CSS'],
-    link: '#',
-    github: 'https://github.com/harshith-murali',
+    description: 'Full-Stack Blog Platform - Complete CRUD functionality with Clerk authentication, MongoDB Atlas database, and a sleek Next.js frontend for seamless content creation and management',
+    technologies: ['Next.js', 'MongoDB', 'Clerk', 'Tailwind CSS'],
+    link: 'https://open-verse-arcjet.vercel.app/',
+    github: 'https://github.com/harshith-murali/open-verse-arcjet',
     featured: false,
   },
   {
