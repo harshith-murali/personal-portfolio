@@ -1,10 +1,10 @@
-# SKILL: Build Elite Portfolio Website (Self-Annealing)
+# SKILL: Build Elite Portfolio Website (Self-Annealing + Autonomous Debugging)
 
 ## ROLE
 
 You are an expert full-stack engineer, UI/UX designer, and motion designer.
 
-Your goal is to build a **top 1% portfolio website** using real user data, refining your output through a **self-annealing process (iterative improvement loop)** until the result is production-grade.
+Your goal is to build a **top 1% portfolio website** using real user data, refining your output through a **self-annealing process (iterative improvement loop)** and **autonomous visual debugging**, until the result is production-grade.
 
 ---
 
@@ -17,7 +17,7 @@ The user will provide:
 * GitHub URL
 * LeetCode URL
 
-Extract structured data from all sources:
+Extract structured data:
 
 * Name, title, bio
 * Skills
@@ -64,52 +64,106 @@ Also include:
   * Scroll reveals (stagger, fade, slide)
   * Hover micro-interactions
   * Animated navbar
-  * Parallax effects (subtle)
+  * Subtle parallax
   * Loading states/skeletons
 
 ---
 
-## SELF-ANNEALING PROCESS (CRITICAL)
-
-You MUST follow this loop:
+## 🧠 SELF-ANNEALING PROCESS (MANDATORY)
 
 ### Step 1: Draft
 
 * Generate full project structure + code
-* Include all sections and base animations
+* Implement all sections + base animations
 
-### Step 2: Critique
+---
 
-Evaluate your own output:
+### Step 2: Runtime Execution
 
-* UI quality (is it premium?)
-* Animation smoothness (too much / too little?)
-* Responsiveness
-* Code quality (modular, clean?)
-* Performance (any unnecessary renders?)
+* Run the project locally
+* Ensure it builds without errors
+* Fix all compile/runtime issues immediately
+
+---
+
+### Step 3: Visual Inspection (CRITICAL)
+
+* Open the app in a browser
+* Take screenshots of:
+
+  * Full page
+  * Each section
+  * Mobile view
+  * Tablet view
+
+---
+
+### Step 4: Critique (Visual + Code)
+
+Evaluate using screenshots + code:
+
+* UI quality (premium or not?)
+* Layout issues (spacing, alignment)
+* Responsiveness issues
+* Animation smoothness
+* Visual bugs (overflow, clipping, flicker)
 * Accessibility issues
-* SEO completeness
+* Performance issues
 
-List concrete flaws.
+List **specific, actionable flaws**.
 
-### Step 3: Refine
+---
 
-* Improve design (spacing, typography, hierarchy)
-* Improve animations (timing, easing, consistency)
-* Optimize code (reusability, structure)
-* Fix performance + accessibility
+### Step 5: Autonomous Fixing
 
-### Step 4: Repeat (2–3 iterations)
+* Fix ALL identified issues
+* Improve:
 
-Each iteration should:
+  * Layout consistency
+  * Typography hierarchy
+  * Animation timing/easing
+  * Responsiveness
+  * Code structure
 
-* Reduce flaws
+---
+
+### Step 6: Iterate (2–3 cycles minimum)
+
+Repeat:
+
+* Run → Screenshot → Critique → Fix
+
+Each iteration must:
+
+* Reduce visual + code issues
 * Increase polish
-* Move toward “Awwwards-level” quality
+* Move toward Awwwards-level quality
 
-### Step 5: Final Output
+---
 
-Return ONLY the final refined version.
+### Step 7: Escalation Rule
+
+👉 ONLY ask the user if:
+
+* Critical data is missing
+* A design decision cannot be inferred
+* Multiple equally valid directions exist
+
+Otherwise:
+
+* Make the best possible decision autonomously
+
+---
+
+### Step 8: Final Output
+
+Return ONLY:
+
+* Final refined codebase
+* Clean structure
+* Fully working implementation
+
+Do NOT include intermediate drafts.
 
 ---
 
@@ -118,7 +172,7 @@ Return ONLY the final refined version.
 * Dark mode default
 * Minimal, premium aesthetic
 * Strong visual hierarchy
-* Smooth, subtle motion (avoid over-animation)
+* Smooth, subtle motion
 * Fully responsive
 
 ---
@@ -126,26 +180,26 @@ Return ONLY the final refined version.
 ## FEATURES
 
 * SEO (metadata, OG tags)
-* Fast loading
-* Accessible (a11y)
+* Fast performance
+* Accessibility (a11y)
 * Reusable components
-* Clean folder structure
+* Clean architecture
 
 ---
 
-## EXTRAS
+## ENHANCEMENTS
 
 * Scroll progress indicator
-* Navbar active section highlight
+* Active navbar highlight
 * Back-to-top button
-* Animated background (gradient/glow/particles)
 * Loading screen
+* Subtle animated background
 
 ---
 
 ## OUTPUT FORMAT
 
-You MUST provide:
+Provide:
 
 1. Full folder structure
 2. All code files (complete)
@@ -157,12 +211,16 @@ You MUST provide:
 ## RULES
 
 * Do NOT skip sections
-* Do NOT use placeholder data if real data exists
 * Do NOT output partial code
-* Follow modern Next.js App Router patterns (async APIs)
+* Do NOT use placeholder data if real data exists
+* Follow modern Next.js App Router (async APIs)
 
 ---
 
 ## GOAL
 
-Create a **visually stunning, highly interactive portfolio** that immediately impresses recruiters and feels like a top-tier developer showcase.
+Create a **visually stunning, highly interactive, production-ready portfolio** that:
+
+* Requires zero fixes
+* Passes visual inspection
+* Feels like a top-tier (Awwwards-level) developer portfolio

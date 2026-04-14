@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
 import { LoadingScreen } from './components/LoadingScreen';
+import { ThemeProvider } from './providers/ThemeProvider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -64,15 +65,17 @@ export default function RootLayout({
         <meta name="theme-color" content="#0f0f0f" />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%2300d9ff'>H</text></svg>" />
       </head>
-      <body className="bg-dark-950">
-        <div className="animated-bg" />
-        <LoadingScreen />
-        <ScrollProgress />
-        <Navbar />
-        <main className="relative z-10" role="main">
-          {children}
-        </main>
-        <Footer />
+      <body className="bg-dark-950 dark:bg-dark-950 light:bg-gradient-to-br light:from-[#faf6f1] light:to-[#f5ede3] transition-colors duration-300">
+        <ThemeProvider>
+          <div className="animated-bg" />
+          <LoadingScreen />
+          <ScrollProgress />
+          <Navbar />
+          <main className="relative z-10" role="main">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { BackToTop } from './BackToTop';
 import { MobileMenu } from './MobileMenu';
+import { ThemeToggler } from './ThemeToggler';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -47,7 +48,7 @@ export function Navbar() {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-dark-900/95 backdrop-blur-md border-b border-dark-700'
+            ? 'bg-dark-900/95 dark:bg-dark-900/95 light:bg-white/95 backdrop-blur-md border-b border-dark-700 light:border-gray-200 transition-colors'
             : 'bg-transparent'
         }`}
       >
@@ -71,8 +72,8 @@ export function Navbar() {
                   href={item.href}
                   className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
                     activeSection === item.href.slice(1)
-                      ? 'text-accent-primary'
-                      : 'text-gray-300 hover:text-white'
+                      ? 'text-accent-primary light:text-amber-700'
+                      : 'text-gray-300 light:text-gray-600 hover:text-white light:hover:text-gray-900'
                   }`}
                   whileHover={{ y: -2 }}
                   whileTap={{ y: 0 }}
@@ -82,10 +83,13 @@ export function Navbar() {
               ))}
             </div>
 
+            {/* Theme Toggler */}
+            <ThemeToggler />
+
             {/* CTA Button */}
             <motion.a
               href="#contact"
-              className="hidden sm:block px-6 py-2 bg-accent-primary text-dark-950 font-semibold rounded-lg hover:bg-accent-secondary transition-colors"
+              className="hidden sm:block px-6 py-2 bg-accent-primary light:bg-amber-700 text-dark-950 light:text-white font-semibold rounded-lg hover:bg-accent-secondary light:hover:bg-amber-800 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -94,7 +98,7 @@ export function Navbar() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden p-2 rounded-lg hover:bg-dark-800 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-dark-800 light:hover:bg-gray-200 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
@@ -102,7 +106,7 @@ export function Navbar() {
               aria-expanded={isMobileMenuOpen}
             >
               <svg
-                className="w-6 h-6 text-accent-primary"
+                className="w-6 h-6 text-accent-primary light:text-amber-700"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"

@@ -80,14 +80,14 @@ export function Hero() {
           variants={itemVariants}
           className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
         >
-          <span className="bg-gradient-to-r from-accent-primary via-white to-accent-secondary bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-accent-primary dark:via-white light:via-amber-700 to-accent-secondary dark:to-accent-secondary light:to-amber-600 bg-clip-text text-transparent">
             {personalInfo.name}
           </span>
         </motion.h1>
 
         {/* Dynamic Role */}
         <motion.div variants={itemVariants} className="mb-8 h-16">
-          <div className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-accent-primary">
+          <div className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-accent-primary light:text-amber-700 transition-colors">
             <motion.span
               key={roleIndex}
               initial={{ opacity: 0, y: 10 }}
@@ -103,7 +103,7 @@ export function Hero() {
         {/* Description */}
         <motion.p
           variants={itemVariants}
-          className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-12"
+          className="text-lg sm:text-xl text-gray-300 light:text-gray-700 max-w-3xl mx-auto mb-12 transition-colors"
         >
           {personalInfo.bio}
         </motion.p>
@@ -115,7 +115,7 @@ export function Hero() {
         >
           <motion.a
             href="#projects"
-            className="px-8 py-3 bg-accent-primary text-dark-950 font-semibold rounded-lg"
+            className="px-8 py-3 bg-accent-primary light:bg-amber-700 text-dark-950 light:text-white font-semibold rounded-lg hover:shadow-lg transition-all"
             whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 217, 255, 0.5)' }}
             whileTap={{ scale: 0.95 }}
           >
@@ -124,7 +124,7 @@ export function Hero() {
           <motion.a
             href="/resume.pdf"
             download="Harshith_M_Resume.pdf"
-            className="px-8 py-3 border-2 border-accent-primary text-accent-primary font-semibold rounded-lg hover:bg-accent-primary/10"
+            className="px-8 py-3 border-2 border-accent-primary light:border-amber-700 text-accent-primary light:text-amber-700 font-semibold rounded-lg hover:bg-accent-primary/10 light:hover:bg-amber-700/10 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -140,10 +140,10 @@ export function Hero() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="text-gray-400"
+            className="w-16 h-16 rounded-full bg-accent-primary light:bg-amber-700 flex items-center justify-center transition-colors duration-300"
           >
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-dark-950 light:text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -151,7 +151,7 @@ export function Hero() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
+                strokeWidth={2.5}
                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
               />
             </svg>

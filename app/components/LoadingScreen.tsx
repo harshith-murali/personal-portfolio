@@ -31,15 +31,15 @@ export function LoadingScreen() {
           </div>
 
           {/* Loading content */}
-          <div className="relative text-center">
+          <div className="relative z-10 flex flex-col items-center justify-center gap-6">
             <motion.div
-              className="w-16 h-16 border-4 border-dark-700 border-t-accent-primary rounded-full"
+              className="w-16 h-16 border-4 border-dark-700 border-t-accent-primary rounded-full flex-shrink-0"
               animate={{ rotate: 360 }}
               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
             />
 
             <motion.div
-              className="mt-8 text-accent-primary text-2xl font-bold"
+              className="text-accent-primary text-2xl font-bold whitespace-nowrap"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >

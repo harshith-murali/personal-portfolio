@@ -10,6 +10,11 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html.light {
+  color-scheme: light;
 }
 
 body {
@@ -21,6 +26,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.light body {
+  background: linear-gradient(135deg, #faf6f1 0%, #f5ede3 100%);
+  color: #2d2416;
 }
 
 /* Animated background effect */
@@ -38,6 +49,17 @@ body {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   pointer-events: none;
+  transition: background 0.3s ease;
+}
+
+html.light .animated-bg {
+  background: linear-gradient(
+    -45deg,
+    #faf6f1,
+    #f5ede3,
+    #faf6f1,
+    #ede5d9
+  );
 }
 
 @keyframes gradient {
@@ -62,19 +84,35 @@ body {
   background: #0f0f0f;
 }
 
+html.light ::-webkit-scrollbar-track {
+  background: #f5ede3;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #00d9ff;
   border-radius: 5px;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #c4a574;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #00b8cc;
 }
 
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #a88960;
+}
+
 /* Custom focus styles */
 :focus-visible {
   outline: 2px solid #00d9ff;
   outline-offset: 2px;
+}
+
+html.light :focus-visible {
+  outline: 2px solid #c4a574;
 }
 
 /* Typography */
@@ -89,8 +127,16 @@ a {
   transition: color 0.3s ease;
 }
 
+html.light a {
+  color: #c4a574;
+}
+
 a:hover {
   color: #ec4899;
+}
+
+html.light a:hover {
+  color: #a88960;
 }
 
 button {
@@ -103,9 +149,18 @@ button {
   color: #0f0f0f;
 }
 
+html.light ::selection {
+  background: #c4a574;
+  color: #faf6f1;
+}
+
 /* Glowing text effect */
 .text-glow {
   text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+html.light .text-glow {
+  text-shadow: 0 0 10px rgba(196, 165, 116, 0.3);
 }
 
 /* Badge styles */
@@ -120,6 +175,12 @@ button {
   font-weight: 500;
 }
 
+html.light .badge {
+  background: rgba(196, 165, 116, 0.15);
+  border: 1px solid rgba(196, 165, 116, 0.4);
+  color: #9a7e5d;
+}
+
 /* Code block styling */
 code {
   font-family: 'Courier New', Courier, monospace;
@@ -127,6 +188,11 @@ code {
   padding: 0.2rem 0.4rem;
   border-radius: 0.25rem;
   font-size: 0.9em;
+}
+
+html.light code {
+  background: rgba(45, 36, 22, 0.08);
+  color: #4a3728;
 }
 
 /* Loading skeleton */

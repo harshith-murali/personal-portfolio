@@ -41,10 +41,10 @@ export function Projects() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Featured <span className="text-accent-primary">Projects</span>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 light:text-gray-900 transition-colors">
+            Featured <span className="text-accent-primary light:text-amber-700 transition-colors">Projects</span>
           </h2>
-          <p className="text-gray-400 text-lg">Crafted with passion and precision</p>
+          <p className="text-gray-400 light:text-gray-700 text-lg transition-colors">Crafted with passion and precision</p>
         </motion.div>
 
         {/* Featured Projects */}
@@ -59,24 +59,24 @@ export function Projects() {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              className="group relative bg-gradient-to-br from-dark-800 to-dark-900 rounded-xl overflow-hidden border border-dark-700 hover:border-accent-primary/50 transition-all"
+              className="group relative bg-gradient-to-br from-dark-800 to-dark-900 light:from-gray-50 light:to-white rounded-xl overflow-hidden border border-dark-700 light:border-gray-200 hover:border-accent-primary light:hover:border-amber-700 transition-all"
               whileHover={{ y: -10 }}
             >
               {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-r from-accent-primary/20 light:from-amber-700/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
               <div className="relative p-8 h-full flex flex-col justify-between">
                 {/* Content */}
                 <div>
                   <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-white group-hover:text-accent-primary transition-colors">
+                    <h3 className="text-2xl font-bold text-white light:text-gray-900 group-hover:text-accent-primary light:group-hover:text-amber-700 transition-colors">
                       {project.title}
                     </h3>
                     {project.featured && (
                       <span className="badge">Featured</span>
                     )}
                   </div>
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-300 light:text-gray-700 mb-6 leading-relaxed transition-colors">
                     {project.description}
                   </p>
 
@@ -85,7 +85,7 @@ export function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-sm bg-dark-700 text-accent-primary rounded-full border border-dark-600 group-hover:border-accent-primary/50 transition-colors"
+                        className="px-3 py-1 text-sm bg-dark-700 light:bg-gray-200 text-accent-primary light:text-amber-700 rounded-full border border-dark-600 light:border-gray-300 group-hover:border-accent-primary light:group-hover:border-amber-700 transition-colors"
                       >
                         {tech}
                       </span>
@@ -94,9 +94,9 @@ export function Projects() {
                 </div>
 
                 {/* Stats and Links */}
-                <div className="flex justify-between items-center pt-6 border-t border-dark-700">
+                <div className="flex justify-between items-center pt-6 border-t border-dark-700 light:border-gray-200">
                   {project.stats && (
-                    <div className="flex gap-4 text-sm text-gray-400">
+                    <div className="flex gap-4 text-sm text-gray-400 light:text-gray-600 transition-colors">
                       <span>⭐ {project.stats.stars}</span>
                       <span>🍴 {project.stats.forks}</span>
                     </div>
@@ -107,7 +107,7 @@ export function Projects() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-accent-primary hover:text-accent-secondary transition-colors font-semibold"
+                        className="text-accent-primary light:text-amber-700 hover:text-accent-secondary light:hover:text-amber-600 transition-colors font-semibold"
                         whileHover={{ x: 5 }}
                       >
                         Live →
@@ -117,7 +117,7 @@ export function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent-primary hover:text-accent-secondary transition-colors font-semibold"
+                      className="text-accent-primary light:text-amber-700 hover:text-accent-secondary light:hover:text-amber-600 transition-colors font-semibold"
                       whileHover={{ x: 5 }}
                     >
                       Code →
@@ -133,12 +133,12 @@ export function Projects() {
         {otherProjects.length > 0 && (
           <div>
             <motion.h3
-              className="text-2xl font-bold mb-8 text-center"
+              className="text-2xl font-bold mb-8 text-center light:text-gray-900 transition-colors"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
             >
-              Other <span className="text-accent-secondary">Projects</span>
+              Other <span className="text-accent-secondary light:text-amber-700 transition-colors">Projects</span>
             </motion.h3>
 
             <motion.div
@@ -152,18 +152,18 @@ export function Projects() {
                 <motion.div
                   key={project.id}
                   variants={itemVariants}
-                  className="p-6 bg-dark-800/50 rounded-lg border border-dark-700 hover:border-accent-secondary/50 transition-colors"
+                  className="p-6 bg-dark-800/50 light:bg-gray-50 rounded-lg border border-dark-700 light:border-gray-200 hover:border-accent-secondary light:hover:border-amber-700 transition-colors"
                   whileHover={{ y: -5 }}
                 >
-                  <h4 className="text-xl font-bold mb-2 text-white hover:text-accent-secondary transition-colors">
+                  <h4 className="text-xl font-bold mb-2 text-white light:text-gray-900 hover:text-accent-secondary light:hover:text-amber-700 transition-colors">
                     {project.title}
                   </h4>
-                  <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+                  <p className="text-gray-400 light:text-gray-700 text-sm mb-4 transition-colors">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-1 text-xs bg-dark-700 text-gray-300 rounded"
+                        className="px-2 py-1 text-xs bg-dark-700 light:bg-gray-200 text-gray-300 light:text-gray-900 rounded transition-colors"
                       >
                         {tech}
                       </span>

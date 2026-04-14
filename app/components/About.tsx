@@ -38,10 +38,10 @@ export function About() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            <span className="text-accent-primary">About</span> Me
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 light:text-gray-900 transition-colors">
+            <span className="text-accent-primary light:text-amber-700 transition-colors">About</span> Me
           </h2>
-          <p className="text-gray-400 text-lg">Get to know me better</p>
+          <p className="text-gray-400 light:text-gray-700 text-lg transition-colors">Get to know me better</p>
         </motion.div>
 
         <motion.div
@@ -53,11 +53,11 @@ export function About() {
         >
           {/* Text Content */}
           <motion.div variants={itemVariants} className="space-y-6">
-            <h3 className="text-3xl font-bold">{about.title}</h3>
+            <h3 className="text-3xl font-bold light:text-gray-900 transition-colors">{about.title}</h3>
             {about.description.split('\n\n').map((paragraph, idx) => (
               <p
                 key={idx}
-                className="text-gray-300 leading-relaxed text-lg"
+                className="text-gray-300 light:text-gray-700 leading-relaxed text-lg transition-colors"
               >
                 {paragraph}
               </p>
@@ -72,10 +72,10 @@ export function About() {
             {about.highlights.map((highlight, idx) => (
               <motion.div
                 key={idx}
-                className="p-6 bg-gradient-to-br from-dark-800 to-dark-900 rounded-lg border border-dark-700 hover:border-accent-primary/50 transition-colors"
+                className="p-6 bg-gradient-to-br from-dark-800 to-dark-900 light:from-gray-50 light:to-white rounded-lg border border-dark-700 light:border-gray-200 hover:border-accent-primary light:hover:border-amber-700 transition-colors"
                 whileHover={{ y: -5, boxShadow: '0 10px 25px rgba(0, 217, 255, 0.1)' }}
               >
-                <div className="text-accent-primary text-2xl mb-2">
+                <div className="text-accent-primary light:text-amber-700 text-2xl mb-2 transition-colors">
                   {idx === 0 && '🚀'}
                   {idx === 1 && '⚡'}
                   {idx === 2 && '💾'}
@@ -83,7 +83,7 @@ export function About() {
                   {idx === 4 && '🔌'}
                   {idx === 5 && '⚙️'}
                 </div>
-                <h4 className="font-semibold text-white">{highlight}</h4>
+                <h4 className="font-semibold text-white light:text-gray-900 transition-colors">{highlight}</h4>
               </motion.div>
             ))}
           </motion.div>
@@ -107,10 +107,10 @@ export function About() {
               className="text-center"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-4xl font-bold text-accent-primary mb-2">
+              <div className="text-4xl font-bold text-accent-primary light:text-amber-700 mb-2 transition-colors">
                 {stat.value}
               </div>
-              <p className="text-gray-400">{stat.label}</p>
+              <p className="text-gray-400 light:text-gray-700 transition-colors">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>

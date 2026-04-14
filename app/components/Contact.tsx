@@ -121,10 +121,10 @@ export function Contact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
-            Let's <span className="text-accent-primary">Connect</span>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 light:text-gray-900 transition-colors">
+            Let's <span className="text-accent-primary light:text-amber-700 transition-colors">Connect</span>
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 light:text-gray-700 text-lg transition-colors">
             Whether it's a collaboration, opportunity, or just a friendly chat - my inbox is open!
           </p>
         </motion.div>
@@ -145,10 +145,10 @@ export function Contact() {
                   href={social.url}
                   target={social.label === 'Email' ? undefined : '_blank'}
                   rel={social.label === 'Email' ? undefined : 'noopener noreferrer'}
-                  className="flex items-center gap-4 p-4 bg-dark-800 rounded-lg border border-dark-700 hover:border-accent-primary/50 transition-colors"
+                  className="flex items-center gap-4 p-4 bg-dark-800 light:bg-white rounded-lg border border-dark-700 light:border-gray-300 hover:border-accent-primary light:hover:border-amber-700 transition-colors"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="w-10 h-10 flex items-center justify-center text-accent-primary">
+                  <div className="w-10 h-10 flex items-center justify-center text-accent-primary light:text-amber-700 transition-colors">
                     {social.label === 'GitHub' && (
                       <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v 3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -164,13 +164,13 @@ export function Contact() {
                     )}
                   </div>
                   <div>
-                    <p className="font-semibold text-white">{social.label}</p>
-                    <p className="text-gray-400 text-sm">{social.handle}</p>
+                    <p className="font-semibold text-white light:text-gray-900 transition-colors">{social.label}</p>
+                    <p className="text-gray-400 light:text-gray-600 text-sm transition-colors">{social.handle}</p>
                   </div>
                 </motion.a>
               ))}
             </div>
-            <p className="text-gray-500 text-sm text-center mt-8">
+            <p className="text-gray-500 light:text-gray-600 text-sm text-center mt-8 transition-colors">
               No spam, no bots - just genuine connections
             </p>
           </motion.div>
@@ -183,8 +183,8 @@ export function Contact() {
             noValidate
           >
             <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-2">
-                Name <span className="text-accent-primary">*</span>
+              <label htmlFor="name" className="block text-sm font-medium mb-2 light:text-gray-900 transition-colors">
+                Name <span className="text-accent-primary light:text-amber-700 transition-colors">*</span>
               </label>
               <input
                 type="text"
@@ -194,10 +194,10 @@ export function Contact() {
                 onChange={handleChange}
                 aria-invalid={!!errors.name}
                 aria-describedby={errors.name ? 'name-error' : undefined}
-                className={`w-full px-4 py-2 bg-dark-800 border rounded-lg focus:outline-none text-white placeholder-gray-500 transition-colors ${
+                className={`w-full px-4 py-2 bg-dark-800 light:bg-white border rounded-lg focus:outline-none text-white light:text-gray-900 placeholder-gray-500 light:placeholder-gray-400 transition-colors ${
                   errors.name
                     ? 'border-red-500 focus:border-red-500'
-                    : 'border-dark-700 focus:border-accent-primary'
+                    : 'border-dark-700 light:border-gray-300 focus:border-accent-primary light:focus:border-amber-700'
                 }`}
                 placeholder="Your name"
               />
@@ -209,8 +209,8 @@ export function Contact() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-2">
-                Email <span className="text-accent-primary">*</span>
+              <label htmlFor="email" className="block text-sm font-medium mb-2 light:text-gray-900 transition-colors">
+                Email <span className="text-accent-primary light:text-amber-700 transition-colors">*</span>
               </label>
               <input
                 type="email"
@@ -220,10 +220,10 @@ export function Contact() {
                 onChange={handleChange}
                 aria-invalid={!!errors.email}
                 aria-describedby={errors.email ? 'email-error' : undefined}
-                className={`w-full px-4 py-2 bg-dark-800 border rounded-lg focus:outline-none text-white placeholder-gray-500 transition-colors ${
+                className={`w-full px-4 py-2 bg-dark-800 light:bg-white border rounded-lg focus:outline-none text-white light:text-gray-900 placeholder-gray-500 light:placeholder-gray-400 transition-colors ${
                   errors.email
                     ? 'border-red-500 focus:border-red-500'
-                    : 'border-dark-700 focus:border-accent-primary'
+                    : 'border-dark-700 light:border-gray-300 focus:border-accent-primary light:focus:border-amber-700'
                 }`}
                 placeholder="your@email.com"
               />
@@ -235,8 +235,8 @@ export function Contact() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message <span className="text-accent-primary">*</span>
+              <label htmlFor="message" className="block text-sm font-medium mb-2 light:text-gray-900 transition-colors">
+                Message <span className="text-accent-primary light:text-amber-700 transition-colors">*</span>
               </label>
               <textarea
                 id="message"
@@ -246,10 +246,10 @@ export function Contact() {
                 rows={5}
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? 'message-error' : undefined}
-                className={`w-full px-4 py-2 bg-dark-800 border rounded-lg focus:outline-none text-white placeholder-gray-500 transition-colors resize-none ${
+                className={`w-full px-4 py-2 bg-dark-800 light:bg-white border rounded-lg focus:outline-none text-white light:text-gray-900 placeholder-gray-500 light:placeholder-gray-400 transition-colors resize-none ${
                   errors.message
                     ? 'border-red-500 focus:border-red-500'
-                    : 'border-dark-700 focus:border-accent-primary'
+                    : 'border-dark-700 light:border-gray-300 focus:border-accent-primary light:focus:border-amber-700'
                 }`}
                 placeholder="Your message..."
               />
@@ -264,7 +264,7 @@ export function Contact() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="w-full px-6 py-3 bg-accent-primary text-dark-950 font-semibold rounded-lg hover:bg-accent-secondary disabled:opacity-50 transition-colors"
+              className="w-full px-6 py-3 bg-accent-primary light:bg-amber-700 text-dark-950 light:text-white font-semibold rounded-lg hover:bg-accent-secondary light:hover:bg-amber-800 disabled:opacity-50 transition-colors"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
