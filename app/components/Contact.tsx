@@ -196,7 +196,6 @@ export function Contact() {
               <div className="flex gap-4">
                 <SocialIcon platform="github" url={personalInfo.socials.github} />
                 <SocialIcon platform="linkedin" url={personalInfo.socials.linkedin} />
-                <SocialIcon platform="leetcode" url={personalInfo.socials.leetcode} />
               </div>
             </div>
           </motion.div>

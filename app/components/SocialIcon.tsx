@@ -38,7 +38,8 @@ export function SocialIcon({ platform, url, className = '' }: SocialIconProps) {
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M16.102 17.93h-3.595v-5.3h3.597V17.93zM16.9 5.95H7.627c-.892 0-1.62.727-1.62 1.623v7.185c0 .891.728 1.62 1.62 1.62h9.273c.892 0 1.62-.729 1.62-1.62V7.573c0-.896-.727-1.623-1.62-1.623zM11.2 13.22h-3.59v-5.3h3.59v5.3zM0 12a12 12 0 1024 0 12 12 0 00-24 0z" />
+            <rect x="2" y="2" width="20" height="20" rx="3" ry="3" fill="currentColor"/>
+            <text x="12" y="17" fontSize="11" fontWeight="900" textAnchor="middle" fill="white" fontFamily="Arial, sans-serif">LC</text>
           </svg>
         );
       default:
