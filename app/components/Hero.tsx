@@ -122,12 +122,13 @@ export function Hero() {
             View My Work
           </motion.a>
           <motion.a
-            href="#contact"
+            href="/resume.pdf"
+            download="Harshith_M_Resume.pdf"
             className="px-8 py-3 border-2 border-accent-primary text-accent-primary font-semibold rounded-lg hover:bg-accent-primary/10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Get In Touch
+            Download Resume
           </motion.a>
         </motion.div>
 
