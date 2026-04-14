@@ -1,0 +1,29 @@
+node_modules/
+.next/
+.env.local
+.env.*.local
+dist/
+build/
+*.log
+.DS_Store
+.vscode/
+.idea/
+
+# Ignore all documentation and reference files generated during development
+CLAUDE.md
+ICON_REFERENCE.md
+PROJECT_STRUCTURE.md
+SETUP.md
+START_HERE.md
+DEPLOYMENT.md
+COMPONENTS_OVERVIEW.md
+FINAL_SUMMARY.md
+QUICK_START.md
+BUILD_SUMMARY.txt
+build_summary.txt
+*.summary
+*.reference
+
+# Ignore generated folders and temporary directories
+app/components/skills/
+.claude/
