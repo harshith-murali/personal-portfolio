@@ -113,8 +113,8 @@ export function Achievements() {
           {[
             { label: 'Projects Built', value: '15+' },
             { label: 'Code Commits', value: '500+' },
-            { label: 'Problems Solved', value: '500+' },
-            { label: 'Years Learning', value: '4+' },
+            { label: 'Problems Solved', value: '200+' },
+            { label: 'Years Learning', value: '2+' },
           ].map((stat, idx) => (
             <motion.div
               key={idx}
