@@ -42,9 +42,11 @@ export function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl sm:text-5xl font-bold mb-4 light:text-gray-900 transition-colors">
-            Featured <span className="text-accent-primary light:text-amber-700 transition-colors">Projects</span>
+            Selected <span className="text-accent-primary light:text-amber-700 transition-colors">Projects</span>
           </h2>
-          <p className="text-gray-400 light:text-gray-700 text-lg transition-colors">Crafted with passion and precision</p>
+          <p className="text-gray-400 light:text-gray-700 text-lg transition-colors">
+            Full-stack, backend, cloud, and algorithmic systems I have designed and built.
+          </p>
         </motion.div>
 
         {/* Featured Projects */}
@@ -55,11 +57,13 @@ export function Projects() {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, index) => (
             <motion.div
               key={project.id}
               variants={itemVariants}
-              className="group relative bg-gradient-to-br from-dark-800 to-dark-900 light:from-gray-50 light:to-white rounded-xl overflow-hidden border border-dark-700 light:border-gray-200 hover:border-accent-primary light:hover:border-amber-700 transition-all"
+              className={`group relative bg-gradient-to-br from-dark-800 to-dark-900 light:from-gray-50 light:to-white rounded-xl overflow-hidden border border-dark-700 light:border-gray-200 hover:border-accent-primary light:hover:border-amber-700 transition-all h-full ${
+                index === 0 ? 'lg:col-span-2' : ''
+              }`}
               whileHover={{ y: -10 }}
             >
               {/* Gradient overlay on hover */}
@@ -68,8 +72,8 @@ export function Projects() {
               <div className="relative p-8 h-full flex flex-col justify-between">
                 {/* Content */}
                 <div>
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-2xl font-bold text-white light:text-gray-900 group-hover:text-accent-primary light:group-hover:text-amber-700 transition-colors">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between mb-4">
+                    <h3 className="text-2xl font-bold text-white light:text-gray-900 group-hover:text-accent-primary light:group-hover:text-amber-700 transition-colors break-words">
                       {project.title}
                     </h3>
                     {project.featured && (
@@ -94,20 +98,21 @@ export function Projects() {
                 </div>
 
                 {/* Stats and Links */}
-                <div className="flex justify-between items-center pt-6 border-t border-dark-700 light:border-gray-200">
+                <div className="flex justify-between items-center gap-4 pt-6 border-t border-dark-700 light:border-gray-200">
                   {project.stats && (
                     <div className="flex gap-4 text-sm text-gray-400 light:text-gray-600 transition-colors">
                       <span>⭐ {project.stats.stars}</span>
                       <span>🍴 {project.stats.forks}</span>
                     </div>
                   )}
-                  <div className="flex gap-4">
-                    {project.link !== '#' && (
+                  <div className="flex gap-4 ml-auto">
+                    {project.link && (
                       <motion.a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-accent-primary light:text-amber-700 hover:text-accent-secondary light:hover:text-amber-600 transition-colors font-semibold"
+                        aria-label={`View ${project.title} live`}
+                        className="text-accent-primary light:text-amber-700 hover:text-accent-secondary light:hover:text-amber-600 transition-colors font-semibold rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900 light:focus-visible:ring-amber-700 light:focus-visible:ring-offset-white"
                         whileHover={{ x: 5 }}
                       >
                         Live →
@@ -117,7 +122,8 @@ export function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent-primary light:text-amber-700 hover:text-accent-secondary light:hover:text-amber-600 transition-colors font-semibold"
+                      aria-label={`View ${project.title} source code on GitHub`}
+                      className="text-accent-primary light:text-amber-700 hover:text-accent-secondary light:hover:text-amber-600 transition-colors font-semibold rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900 light:focus-visible:ring-amber-700 light:focus-visible:ring-offset-white"
                       whileHover={{ x: 5 }}
                     >
                       Code →
@@ -152,13 +158,15 @@ export function Projects() {
                 <motion.div
                   key={project.id}
                   variants={itemVariants}
-                  className="p-6 bg-dark-800/50 light:bg-gray-50 rounded-lg border border-dark-700 light:border-gray-200 hover:border-accent-secondary light:hover:border-amber-700 transition-colors"
+                  className="p-6 bg-dark-800/50 light:bg-gray-50 rounded-lg border border-dark-700 light:border-gray-200 hover:border-accent-secondary light:hover:border-amber-700 transition-colors h-full flex flex-col"
                   whileHover={{ y: -5 }}
                 >
-                  <h4 className="text-xl font-bold mb-2 text-white light:text-gray-900 hover:text-accent-secondary light:hover:text-amber-700 transition-colors">
+                  <h4 className="text-xl font-bold mb-2 text-white light:text-gray-900 hover:text-accent-secondary light:hover:text-amber-700 transition-colors break-words">
                     {project.title}
                   </h4>
-                  <p className="text-gray-400 light:text-gray-700 text-sm mb-4 transition-colors">{project.description}</p>
+                  <p className="text-gray-400 light:text-gray-700 text-sm mb-4 transition-colors leading-relaxed">
+                    {project.description}
+                  </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span
@@ -169,24 +177,26 @@ export function Projects() {
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-4">
-                    {project.link !== '#' && (
+                  <div className="flex gap-4 mt-auto pt-4">
+                    {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-accent-secondary hover:text-accent-primary text-sm font-semibold"
+                        aria-label={`View ${project.title} live`}
+                        className="text-accent-secondary hover:text-accent-primary text-sm font-semibold rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900 light:focus-visible:ring-amber-700 light:focus-visible:ring-offset-white"
                       >
-                        Live
+                        Live →
                       </a>
                     )}
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-accent-secondary hover:text-accent-primary text-sm font-semibold"
+                      aria-label={`View ${project.title} source code on GitHub`}
+                      className="text-accent-secondary hover:text-accent-primary text-sm font-semibold rounded transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900 light:focus-visible:ring-amber-700 light:focus-visible:ring-offset-white"
                     >
-                      GitHub
+                      Code →
                     </a>
                   </div>
                 </motion.div>

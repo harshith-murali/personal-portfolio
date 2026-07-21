@@ -52,19 +52,25 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
   {
     id: "1",
-    title: "UrbanTwins",
+    title: "Quantro",
     description:
-      "Smart City Digital Twin Dashboard - Real-time simulation of traffic, energy, water, and disaster infrastructure across Bengaluru with AI-powered recommendations",
-    technologies: ["Next.js", "MongoDB", "Leaflet", "Clerk", "Gemini API"],
-    link: "https://urban-digital-twins-track3.vercel.app",
-    github: "https://github.com/harshith-murali/urban-digital-twins-track3",
+      "AI-powered stock portfolio platform for Indian investors with portfolio tracking, trade simulation, backtesting, risk-aware recommendations, and automated market-data processing.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Express",
+      "PostgreSQL",
+      "Claude API",
+      "AWS",
+    ],
+    github: "https://github.com/harshith-murali/ai-portfolio-manager",
     featured: true,
   },
   {
     id: "2",
     title: "Sniply",
     description:
-      "URL Shortener with Advanced Analytics - Custom aliases, click tracking, and detailed analytics including browser, OS, device, and referrer breakdowns",
+      "Full-stack URL shortener with custom aliases, authenticated dashboards, asynchronous click tracking, and analytics for browsers, operating systems, devices, and referrers.",
     technologies: ["Next.js", "MongoDB", "Clerk", "Nanoid"],
     link: "https://url-shortner-silk-nine.vercel.app",
     github: "https://github.com/harshith-murali/url-shortner",
@@ -72,22 +78,37 @@ export const projects: Project[] = [
   },
   {
     id: "3",
-    title: "OpenVerse",
+    title: "Repo Analyser",
     description:
-      "Full-Stack Blog Platform - Complete CRUD functionality with Clerk authentication, MongoDB Atlas database, and a sleek Next.js frontend for seamless content creation and management",
-    technologies: ["Next.js", "MongoDB", "Clerk", "Tailwind CSS"],
-    link: "https://open-verse-arcjet.vercel.app/",
-    github: "https://github.com/harshith-murali/open-verse-arcjet",
-    featured: false,
+      "GitHub portfolio analytics platform that synchronizes repository data, evaluates project quality, visualizes developer activity, and generates recruiter-ready public portfolio pages.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "PostgreSQL",
+      "Prisma",
+      "GitHub API",
+      "Claude API",
+    ],
+    github: "https://github.com/harshith-murali/repo-analyser",
+    featured: true,
   },
   {
     id: "4",
-    title: "Auth System",
+    title: "UrbanTwins",
     description:
-      "Complete Authentication Flow - Sign-up, sign-in, logout, forgot password, OTP verification, and JWT-based session management",
-    technologies: ["Next.js", "JWT", "Node.js"],
-    link: "https://auth-nextjs-theta-seven.vercel.app",
-    github: "https://github.com/harshith-murali/auth-nextjs",
+      "Smart-city digital twin dashboard that simulates traffic, energy, water, and disaster systems with interactive mapping, graph-based routing, and AI recommendations.",
+    technologies: ["Next.js", "MongoDB", "Leaflet", "Clerk", "Gemini API"],
+    link: "https://urban-digital-twins-track3.vercel.app",
+    github: "https://github.com/harshith-murali/urban-digital-twins-track3",
+    featured: false,
+  },
+  {
+    id: "5",
+    title: "OS Algorithm Simulator",
+    description:
+      "Interactive operating-systems visualizer with step-by-step simulations for CPU scheduling, page replacement, disk scheduling, and Banker's Algorithm.",
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Recharts"],
+    github: "https://github.com/harshith-murali/AlgoVisualiser",
     featured: false,
   },
 ];
