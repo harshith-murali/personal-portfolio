@@ -4,6 +4,7 @@ import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
 import { LoadingScreen } from './components/LoadingScreen';
 import { ThemeProvider } from './providers/ThemeProvider';
+import { ChatWidgetWrapper } from './components/chat/ChatWidgetWrapper';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -75,6 +76,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ChatWidgetWrapper />
         </ThemeProvider>
       </body>
     </html>

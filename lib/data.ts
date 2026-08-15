@@ -121,7 +121,7 @@ export const experience: Experience[] = [
     duration: "2024 - 2028",
     type: "education",
     description: [
-      "CGPA: 9.04 / 10",
+      "CGPA: 9.17 / 10",
       "Strong foundation in DSA and system design",
     ],
   },
@@ -173,7 +173,7 @@ export const achievements: Achievement[] = [
     id: "3",
     title: "LeetCode",
     description:
-      "150+ problems solved with focus on system design and algorithms",
+      "200+ problems solved with focus on system design and algorithms",
     icon: "💻",
     date: "Ongoing",
     link: "https://leetcode.com/u/geekycoder11",

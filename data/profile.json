@@ -1,0 +1,210 @@
+{
+  "personalInfo": {
+    "name": "Harshith M",
+    "title": "Full-Stack Developer & Computer Science Student",
+    "bio": "2nd-year Computer Science Engineering student at BMS College of Engineering with a 9.17 CGPA. Passionate about building scalable, high-performance web applications, AI-driven solutions, and cloud architectures using Next.js, React, TypeScript, C++, and AWS.",
+    "email": "mharshith200@gmail.com",
+    "phone": "+91-7204621805",
+    "location": "Bangalore, India",
+    "socials": {
+      "github": "https://github.com/harshith-murali",
+      "linkedin": "https://linkedin.com/in/harshith-m-dev",
+      "leetcode": "https://leetcode.com/u/geekycoder11",
+      "twitter": "https://twitter.com"
+    },
+    "internshipGoal": "Seeking Full-Stack Web Development, Frontend, or AI/ML Engineering internship opportunities where I can apply my expertise in modern web frameworks, AI integration, and cloud platforms."
+  },
+  "about": {
+    "summary": "I'm a computer science undergrad who loves transforming complex problems into elegant, user-centric software products. My expertise ranges from full-stack web development with Next.js and Node.js to AI API integrations (Claude, Gemini) and cloud infrastructure (AWS CCP certified).",
+    "coreStrengths": [
+      "Full-Stack Next.js (App Router) & React engineering",
+      "AI & LLM API integration (Claude, OpenAI, Gemini)",
+      "RESTful API & System Architecture Design",
+      "Data Structures & Algorithms (150+ LeetCode solved in C++)",
+      "Cloud Infrastructure & Services (AWS Certified Cloud Practitioner)",
+      "Database Modeling & Query Optimization (MongoDB, PostgreSQL)"
+    ]
+  },
+  "skills": [
+    {
+      "category": "Languages",
+      "items": ["TypeScript", "JavaScript", "C++", "HTML5", "CSS3", "SQL"]
+    },
+    {
+      "category": "Frontend",
+      "items": ["Next.js (App Router)", "React.js", "Tailwind CSS", "Framer Motion", "Zustand", "Redux Toolkit", "Responsive UI/UX Design"]
+    },
+    {
+      "category": "Backend & APIs",
+      "items": ["Node.js", "Express.js", "REST APIs", "GraphQL", "JWT Authentication", "Role-Based Access Control (RBAC)", "Serverless Functions"]
+    },
+    {
+      "category": "Databases & ORMs",
+      "items": ["MongoDB", "Mongoose", "PostgreSQL", "Prisma ORM", "MongoDB Atlas"]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "items": ["AWS (EC2, S3, Lambda, IAM)", "Vercel", "Git & GitHub", "Docker (Basics)", "CI/CD Pipelines"]
+    },
+    {
+      "category": "AI & Developer Tools",
+      "items": ["Anthropic Claude API", "Google Gemini API", "Clerk Auth", "Postman", "VS Code", "Vite"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "quantro",
+      "title": "Quantro",
+      "tagline": "AI-Powered Stock Portfolio Platform",
+      "description": "AI-powered stock portfolio platform for Indian investors featuring portfolio tracking, trade simulation, backtesting, risk-aware recommendations, and automated market-data processing.",
+      "technologies": ["Next.js", "TypeScript", "Express", "PostgreSQL", "Claude API", "AWS"],
+      "github": "https://github.com/harshith-murali/ai-portfolio-manager",
+      "featured": true,
+      "keyHighlights": [
+        "Integrated Anthropic Claude API for personalized portfolio risk advice and financial sentiment analysis",
+        "Built backtesting engine to simulate historical stock performance across custom timeframe windows",
+        "Deployed backend microservices on AWS with PostgreSQL for scalable data persistence"
+      ]
+    },
+    {
+      "id": "sniply",
+      "title": "Sniply",
+      "tagline": "Full-Stack Analytics URL Shortener",
+      "description": "Full-stack URL shortener with custom aliases, authenticated user dashboards, asynchronous click tracking, and granular analytics for browsers, operating systems, devices, and referrers.",
+      "technologies": ["Next.js", "MongoDB", "Clerk", "Nanoid", "Tailwind CSS"],
+      "link": "https://url-shortner-silk-nine.vercel.app",
+      "github": "https://github.com/harshith-murali/url-shortner",
+      "featured": true,
+      "keyHighlights": [
+        "Implemented Clerk authentication for secure user dashboards and custom link management",
+        "Designed real-time click analytics dashboard showing device, browser, and geographical data",
+        "Optimized MongoDB queries with indexing for lightning-fast redirection latency"
+      ]
+    },
+    {
+      "id": "repo-analyser",
+      "title": "Repo Analyser",
+      "tagline": "GitHub Portfolio & Code Quality Analytics Platform",
+      "description": "GitHub portfolio analytics platform that synchronizes repository data, evaluates project quality, visualizes developer activity, and generates recruiter-ready public portfolio pages.",
+      "technologies": ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "GitHub API", "Claude API"],
+      "github": "https://github.com/harshith-murali/repo-analyser",
+      "featured": true,
+      "keyHighlights": [
+        "Automated GitHub API ingestion pipeline to analyze repository commit cadence, language distribution, and code quality",
+        "Utilized Claude API to generate intelligent resume bullet points and project summaries from commit history",
+        "Rendered interactive activity heatmaps and visual stats for recruiter evaluation"
+      ]
+    },
+    {
+      "id": "urbantwins",
+      "title": "UrbanTwins",
+      "tagline": "Smart-City Digital Twin Dashboard",
+      "description": "Smart-city digital twin dashboard simulating traffic, energy, water, and disaster systems with interactive mapping, graph-based routing, and AI recommendations.",
+      "technologies": ["Next.js", "MongoDB", "Leaflet", "Clerk", "Gemini API"],
+      "link": "https://urban-digital-twins-track3.vercel.app",
+      "github": "https://github.com/harshith-murali/urban-digital-twins-track3",
+      "featured": false,
+      "keyHighlights": [
+        "Rendered real-time GIS mapping layers using Leaflet for urban traffic and utility monitoring",
+        "Implemented graph search algorithms for emergency vehicle routing and resource allocation",
+        "Leveraged Gemini API to deliver predictive anomaly alerts for municipal grid management"
+      ]
+    },
+    {
+      "id": "os-simulator",
+      "title": "OS Algorithm Simulator",
+      "tagline": "Interactive Operating Systems Visualizer",
+      "description": "Interactive operating-systems visualizer with step-by-step simulations for CPU scheduling (FCFS, SJF, Round Robin), page replacement (FIFO, LRU, Optimal), disk scheduling, and Banker's Algorithm for deadlock avoidance.",
+      "technologies": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Recharts"],
+      "github": "https://github.com/harshith-murali/AlgoVisualiser",
+      "featured": false,
+      "keyHighlights": [
+        "Created step-by-step visual animation engine for process scheduling and memory page swaps",
+        "Built interactive deadlock detection module modeling Banker's Algorithm resource matrices"
+      ]
+    },
+    {
+      "id": "smart-attendance",
+      "title": "Smart Attendance System",
+      "tagline": "AI/ML-Driven Attendance Verification Platform",
+      "description": "Automated attendance tracking platform utilizing AI/ML computer vision and verification workflows for streamlined institutional tracking.",
+      "technologies": ["Next.js", "React", "Node.js", "MongoDB", "Computer Vision"],
+      "github": "https://github.com/harshith-murali",
+      "featured": false,
+      "keyHighlights": [
+        "Streamlined institutional attendance tracking with automated verification and reporting",
+        "Integrated real-time dashboard for faculty to audit attendance trends and generate exportable reports"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "bmsce-edu",
+      "title": "B.E. in Computer Science & Engineering",
+      "organization": "BMS College of Engineering, Bangalore",
+      "duration": "2024 - 2028",
+      "type": "education",
+      "details": [
+        "Current CGPA: 9.17 / 10",
+        "Relevant Coursework: Data Structures & Algorithms, Object-Oriented Programming (C++), Operating Systems, Database Management Systems, Computer Networks, Software Engineering"
+      ]
+    },
+    {
+      "id": "ieee-coordinator",
+      "title": "Student Activity Coordinator",
+      "organization": "BMSCE IEEE Student Branch",
+      "duration": "2025 - Present",
+      "type": "leadership",
+      "details": [
+        "Coordinating technical hackathons, workshops, and student coding competitions across campus",
+        "Fostering student developer community and facilitating tech speaker sessions"
+      ]
+    },
+    {
+      "id": "codesphere-head",
+      "title": "Event Head - CodeSphere",
+      "organization": "PhaseShift 2025, BMSCE",
+      "duration": "2025",
+      "type": "achievement",
+      "details": [
+        "Spearheaded CodeSphere, a 24-hour global codeathon hosted during PhaseShift 2025",
+        "Collaborated with GeeksforGeeks for platform hosting, problem setting, and prize sponsorship",
+        "Managed problem setting, platform logistics, and judging for over 300+ participant teams"
+      ]
+    }
+  ],
+  "achievements": [
+    {
+      "id": "aws-ccp",
+      "title": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services (AWS)",
+      "date": "2026",
+      "credentialUrl": "http://credly.com/badges/4f7fd64b-9ca4-4ab6-95c3-d27a8402cb1a",
+      "description": "Validated foundational expertise in AWS cloud concepts, security, IAM, EC2, S3, Serverless architecture, and cloud billing principles."
+    },
+    {
+      "id": "codeverse-1st",
+      "title": "1st Place - CODEVERSE 24hr Hackathon",
+      "issuer": "IEEE Computer Society, BMSCE",
+      "date": "2026",
+      "description": "Secured 1st place in a competitive 24-hour hackathon by developing a full-stack solution under strict deadline constraints."
+    },
+    {
+      "id": "leetcode-stats",
+      "title": "LeetCode 150+ Problems Solved",
+      "issuer": "LeetCode",
+      "profileUrl": "https://leetcode.com/u/geekycoder11",
+      "description": "Solved 150+ algorithmic problems focusing on Arrays, Strings, Trees, Graphs, Dynamic Programming, and System Design concepts."
+    }
+  ],
+  "resumeSummary": {
+    "summary": "Harshith M is a Computer Science undergraduate (CGPA 9.17) and Full-Stack Developer with expertise in Next.js, React, TypeScript, C++, Node.js, and AWS. Certified AWS Cloud Practitioner with a proven track record of building production-grade web applications, winning hackathons (1st Place CODEVERSE 24hr Hackathon), and leading technical events.",
+    "highlights": [
+      "AWS Certified Cloud Practitioner (2026)",
+      "9.17 CGPA at BMS College of Engineering",
+      "1st Place CODEVERSE 24hr Hackathon Winner",
+      "150+ LeetCode problems solved",
+      "Event Head for CodeSphere 24hr Codeathon (PhaseShift 2025)"
+    ]
+  }
+}

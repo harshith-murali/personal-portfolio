@@ -74,35 +74,16 @@ html.light .animated-bg {
   }
 }
 
-/* Scrollbar styling */
+/* Hide scrollbar while keeping scroll functionality */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0f0f0f;
-}
-
-html.light ::-webkit-scrollbar-track {
-  background: #f5ede3;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #00d9ff;
-  border-radius: 5px;
-}
-
-html.light ::-webkit-scrollbar-thumb {
-  background: #c4a574;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #00b8cc;
-}
-
-html.light ::-webkit-scrollbar-thumb:hover {
-  background: #a88960;
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 /* Custom focus styles */
@@ -122,21 +103,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #00d9ff;
   text-decoration: none;
   transition: color 0.3s ease;
-}
-
-html.light a {
-  color: #c4a574;
-}
-
-a:hover {
-  color: #ec4899;
-}
-
-html.light a:hover {
-  color: #a88960;
 }
 
 button {

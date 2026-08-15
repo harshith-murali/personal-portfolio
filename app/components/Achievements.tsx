@@ -9,8 +9,8 @@ export function Achievements() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.05,
       },
     },
   };
@@ -20,7 +20,7 @@ export function Achievements() {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.4 },
     },
   };
 
@@ -34,7 +34,7 @@ export function Achievements() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
@@ -107,7 +107,7 @@ export function Achievements() {
           className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
           viewport={{ once: true }}
         >
           {[

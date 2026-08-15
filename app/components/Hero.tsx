@@ -1,33 +1,24 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { personalInfo } from '@/lib/data';
+import TypewriterTitle from './TypewriterTitle';
 
-const roles = [
-  'Full-Stack Developer',
-  'Problem Solver',
-  'Cloud Enthusiast',
-  'Open Source Contributor',
+const roleSequences = [
+  { text: 'Full-Stack Developer', deleteAfter: true },
+  { text: 'Problem Solver', deleteAfter: true },
+  { text: 'Cloud Enthusiast', deleteAfter: true },
+  { text: 'Open Source Contributor', deleteAfter: true },
 ];
 
 export function Hero() {
-  const [roleIndex, setRoleIndex] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   };
@@ -37,7 +28,7 @@ export function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: 'easeOut' },
+      transition: { duration: 0.4, ease: 'easeOut' },
     },
   };
 
@@ -78,26 +69,22 @@ export function Hero() {
         {/* Name */}
         <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 leading-tight"
         >
           <span className="bg-gradient-to-r from-accent-primary dark:via-white light:via-amber-700 to-accent-secondary dark:to-accent-secondary light:to-amber-600 bg-clip-text text-transparent">
             {personalInfo.name}
           </span>
         </motion.h1>
 
-        {/* Dynamic Role */}
-        <motion.div variants={itemVariants} className="mb-8 h-16">
-          <div className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-accent-primary light:text-amber-700 transition-colors">
-            <motion.span
-              key={roleIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.8 }}
-            >
-              {roles[roleIndex]}
-            </motion.span>
-          </div>
+        {/* Dynamic Typewriter Role */}
+        <motion.div variants={itemVariants} className="mb-4 min-h-[3.5rem] flex items-center justify-center">
+          <TypewriterTitle
+            sequences={roleSequences}
+            typingSpeed={50}
+            deleteSpeed={30}
+            pauseBeforeDelete={1000}
+            className="py-0"
+          />
         </motion.div>
 
         {/* Description */}

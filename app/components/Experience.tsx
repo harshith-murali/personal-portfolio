@@ -9,8 +9,8 @@ export function Experience() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
       },
     },
   };
@@ -20,7 +20,7 @@ export function Experience() {
     visible: {
       opacity: 1,
       x: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0.4 },
     },
   };
 
@@ -34,7 +34,7 @@ export function Experience() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
