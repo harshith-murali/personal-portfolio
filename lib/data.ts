@@ -138,6 +138,15 @@ export const projects: Project[] = [
     github: "https://github.com/harshith-murali/urban-digital-twins-track3",
     featured: false,
   },
+  {
+    id: "os-simulator",
+    title: "OS Algorithm Simulator",
+    description:
+      "Interactive operating-systems visualizer with step-by-step simulations for CPU scheduling (FCFS, SJF, Round Robin), page replacement (FIFO, LRU, Optimal), disk scheduling, and Banker's Algorithm for deadlock avoidance.",
+    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Recharts"],
+    github: "https://github.com/harshith-murali/AlgoVisualiser",
+    featured: false,
+  },
 ];
 
 export const experience: Experience[] = [
