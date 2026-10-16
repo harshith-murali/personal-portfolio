@@ -97,6 +97,7 @@ export const projects: Project[] = [
       "JWT",
       "Claude API",
     ],
+    link: "https://quantro-landing.vercel.app",
     github: "https://github.com/harshith-murali/Quantro-AI-Portfolio-Manager",
     featured: true,
   },
@@ -144,6 +145,7 @@ export const projects: Project[] = [
     description:
       "Interactive operating-systems visualizer with step-by-step simulations for CPU scheduling (FCFS, SJF, Round Robin), page replacement (FIFO, LRU, Optimal), disk scheduling, and Banker's Algorithm for deadlock avoidance.",
     technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Recharts"],
+    link: "https://algo-visualiser-xi.vercel.app",
     github: "https://github.com/harshith-murali/AlgoVisualiser",
     featured: false,
   },
