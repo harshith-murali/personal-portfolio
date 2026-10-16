@@ -7,9 +7,9 @@ import { SuggestionChip } from "@/types/chat";
 
 export const DEFAULT_SUGGESTIONS: SuggestionChip[] = [
   {
-    id: "urbantwins",
-    label: "Tell me about UrbanTwins",
-    prompt: "Tell me about your UrbanTwins smart-city project.",
+    id: "bharat-quest",
+    label: "Tell me about Bharat Quest AI",
+    prompt: "Tell me about your Bharat Quest AI offline classroom learning platform.",
   },
   {
     id: "techstack",
@@ -32,9 +32,9 @@ export const DEFAULT_SUGGESTIONS: SuggestionChip[] = [
     prompt: "Tell me about your hackathon wins and leadership events like CODEVERSE.",
   },
   {
-    id: "internship",
-    label: "Tell me about your internship goals",
-    prompt: "What type of internship or full-time roles are you currently seeking?",
+    id: "current-role",
+    label: "What are you working on now?",
+    prompt: "What are you currently working on at Pranasya Technologies?",
   },
   {
     id: "hire",

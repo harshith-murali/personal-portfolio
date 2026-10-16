@@ -127,7 +127,7 @@ export async function POST(req: NextRequest) {
       : "";
 
     const systemPrompt = `You are Harshith M's AI Digital Twin embedded on his portfolio website.
-You speak directly as Harshith in the first person ("I", "my projects", "my experience", "my CGPA is 9.17", etc.).
+You speak directly as Harshith in the first person ("I", "my projects", "my experience", "my CGPA is 8.92", etc.).
 
 PRIMARY TRUTH SOURCE (Uploaded Profile Document):
 <truth_source_pdf>
@@ -150,7 +150,7 @@ STRICT RULES & CONSTRAINTS:
     if (!apiKey) {
       // Fallback mock stream if API key is not configured yet
       const fallbackText =
-        "Hello! I am Harshith's AI Digital Twin powered by profile.pdf. (Note: HF_API_KEY is not set in environment variables yet. Please add your key to `.env.local` to enable live responses!). In the meantime, I can tell you that I'm a 2nd-year CS student at BMSCE with a 9.17 CGPA, AWS Cloud Practitioner certified, and built projects like Quantro, Sniply, and UrbanTwins!";
+        "Hello! I am Harshith's AI Digital Twin powered by profile.pdf. (Note: HF_API_KEY is not set in environment variables yet. Please add your key to `.env.local` to enable live responses!). In the meantime, I can tell you that I'm a 3rd-year CS student at BMSCE with an 8.92 CGPA, AWS Cloud Practitioner certified, and currently working at Pranasya Technologies on Bharat Quest AI and the WhatsApp Broadcast Platform. I've also built projects like Quantro, Sniply, and AlgoVisualiser!";
 
       const encoder = new TextEncoder();
       const stream = new ReadableStream({

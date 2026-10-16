@@ -59,7 +59,7 @@ export const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
           </div>
           <div className="flex items-center space-x-2">
             <GraduationCap className="w-3.5 h-3.5 text-emerald-400" />
-            <span>BMSCE &amp; CGPA (9.17)</span>
+            <span>BMSCE &amp; CGPA (8.92)</span>
           </div>
           <div className="flex items-center space-x-2">
             <Mail className="w-3.5 h-3.5 text-purple-400" />
