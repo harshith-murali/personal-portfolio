@@ -80,6 +80,7 @@ export const projects: Project[] = [
       "PostgreSQL",
       "ChromaDB",
     ],
+    link: "https://bharat-quest-one.vercel.app",
     github: "https://github.com/harshith-murali/bharat-quest",
     featured: true,
   },
