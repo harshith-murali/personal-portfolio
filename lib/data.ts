@@ -124,6 +124,7 @@ export const projects: Project[] = [
       "MySQL",
       "Docker",
     ],
+    link: "https://whatsapp-integration-iota.vercel.app",
     github: "https://github.com/harshith-murali/whatsapp-integration",
     featured: true,
   },

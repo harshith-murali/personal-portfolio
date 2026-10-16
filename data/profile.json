@@ -98,6 +98,7 @@
       "tagline": "Role-Aware WhatsApp Broadcast Campaign System",
       "description": "Robust internal notification system to orchestrate, approve, queue, and deliver WhatsApp broadcast campaigns with a secure 4-tier RBAC model, transactional message claim locks, background worker processes, and structured logging.",
       "technologies": ["React", "TypeScript", "Node.js", "Express", "Prisma", "MySQL", "Docker"],
+      "link": "https://whatsapp-integration-iota.vercel.app",
       "github": "https://github.com/harshith-murali/whatsapp-integration",
       "featured": true,
       "keyHighlights": [
