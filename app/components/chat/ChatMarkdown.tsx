@@ -4,6 +4,7 @@ import React, { isValidElement, useState } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Check, Copy, ExternalLink } from "lucide-react";
+import { remarkTablesToSections } from "@/lib/chat-markdown";
 
 export function ChatMarkdown({ content }: { content: string }) {
   return (
@@ -23,7 +24,7 @@ export function ChatMarkdown({ content }: { content: string }) {
       [&_blockquote]:pl-3 [&_blockquote]:text-zinc-400
       [&_hr]:my-4 [&_hr]:border-zinc-700">
       <Markdown
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[remarkGfm, remarkTablesToSections]}
         skipHtml
         disallowedElements={["img"]}
         components={{
@@ -33,23 +34,12 @@ export function ChatMarkdown({ content }: { content: string }) {
               {children}<ExternalLink aria-hidden="true" className="ml-1 inline h-3 w-3" />
             </a>
           ) : <span>{children}</span>,
-          table: ({ children }) => (
-            <div className="my-4 min-w-0 max-w-full">
-              <p className="!mb-2 !mt-0 text-[11px] leading-4 text-zinc-400">Scroll horizontally to view all columns ↔</p>
-              <div role="region" aria-label="Response table, scroll horizontally to view all columns" tabIndex={0}
-                className="max-w-full overflow-x-auto overscroll-x-contain rounded-lg border border-zinc-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400">
-                <table className="w-max min-w-full table-auto border-collapse text-left text-xs leading-5 [overflow-wrap:normal] [word-break:normal]">{children}</table>
-              </div>
-            </div>
-          ),
-          th: ({ children }) => <th className="min-w-[10rem] whitespace-nowrap border-b border-zinc-700 bg-zinc-800 px-3 py-2 align-top font-semibold text-zinc-100">{children}</th>,
-          td: ({ children }) => <td className="min-w-[10rem] max-w-[20rem] whitespace-normal border-b border-zinc-800 px-3 py-2 align-top [overflow-wrap:break-word]">{children}</td>,
           code: ({ children, className }) => (
             <code className={className || "rounded border border-zinc-700/60 bg-zinc-800 px-1 py-0.5 font-mono text-xs text-cyan-300"}>{children}</code>
           ),
           pre: ({ children }) => {
             if (!isValidElement<{ children?: React.ReactNode; className?: string }>(children)) {
-              return <pre className="overflow-x-auto">{children}</pre>;
+              return <pre className="whitespace-pre-wrap [overflow-wrap:anywhere]">{children}</pre>;
             }
             const language = /language-(\S+)/.exec(children.props.className || "")?.[1] || "code";
             return <CodeBlock language={language} code={String(children.props.children ?? "").replace(/\n$/, "")} />;
@@ -97,7 +87,7 @@ const CodeBlock: React.FC<{ language: string; code: string }> = ({
           )}
         </button>
       </div>
-      <pre className="p-3 text-zinc-200 font-mono text-[11px] overflow-x-auto leading-relaxed">
+      <pre className="whitespace-pre-wrap p-3 text-zinc-200 font-mono text-[11px] leading-relaxed [overflow-wrap:anywhere]">
         <code>{code}</code>
       </pre>
     </div>
