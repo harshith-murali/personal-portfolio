@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
-  <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" />
+  <img src="https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logoColor=white" />
 </p>
 
 # Harshith M — AI & Full Stack Systems Portfolio
@@ -19,10 +19,10 @@
 ## 🌟 Key Features
 
 ### 🤖 AI Digital Twin Chatbot
-- **Interactive Conversational AI**: Recruiter and visitor assistant powered by Hugging Face Inference Router (`Qwen/Qwen2.5-72B-Instruct`).
+- **Interactive Conversational AI**: Recruiter and visitor assistant powered by Groq (`openai/gpt-oss-20b`).
 - **Grounded Resume Context**: Answers questions about technical skills, project architectures, hackathon achievements, and education with high accuracy.
 - **Interactive Suggestion Chips**: One-click quick prompts (Bharat Quest, Quantro, tech stack, resume summary).
-- **Graceful Offline/Fallback Mode**: Continues to provide structured profile responses if API quotas or keys are unavailable.
+- **Service Error Handling**: Shows a friendly retry message if the AI provider is unavailable or rate limited.
 
 ### 🎨 Visual & Motion Design
 - **Framer Motion Animations**: Staggered fade-ins, spring physics, and viewport scroll reveals.
@@ -45,9 +45,9 @@
 | **Styling** | Tailwind CSS + CSS custom properties |
 | **Animations** | Framer Motion |
 | **Icons** | Lucide React |
-| **AI Runtime** | OpenAI SDK pointing to Hugging Face Router (`router.huggingface.co/v1`) |
+| **AI Runtime** | OpenAI SDK pointing to Groq (`api.groq.com/openai/v1`) |
 | **Email Dispatch** | Nodemailer |
-| **Deployment** | Vercel Edge Platform |
+| **Deployment** | Vercel (Node.js API routes) |
 
 ---
 
@@ -95,11 +95,11 @@ npm install
 ```
 
 ### 2. Configure Environment Variables
-Create `.env.local` in the project root:
+Copy `.env.example` to `.env.local` in the project root, then enter your key from [Groq Console](https://console.groq.com/keys):
 ```env
-# AI Digital Twin Chat (Hugging Face Inference)
-HUGGINGFACE_API_KEY="hf_..."
-HUGGINGFACE_MODEL="Qwen/Qwen2.5-72B-Instruct"
+# AI Digital Twin Chat (Groq; server-only)
+GROQ_API_KEY="your-groq-api-key"
+GROQ_MODEL="openai/gpt-oss-20b"
 
 # Optional Contact Form Email Dispatch
 EMAIL_USER="your-email@gmail.com"
@@ -112,6 +112,18 @@ EMAIL_TO="your-email@gmail.com"
 npm run dev
 # Running at http://localhost:3000
 ```
+
+---
+
+## Deploying on Vercel
+
+1. Push the updated source to the Git repository connected to your Vercel project.
+2. In **Settings → Environment Variables**, add `GROQ_API_KEY` with your Groq key and `GROQ_MODEL` with `openai/gpt-oss-20b`. Select **Production**, and **Preview** if you use preview deployments.
+3. Remove obsolete `HF_API_KEY`, `HF_MODEL`, `HF_BASE_URL`, `HUGGINGFACE_API_KEY`, and `HUGGINGFACE_MODEL` variables. Chat now uses Groq exclusively.
+4. Deploy the updated source or use **Deployments → Redeploy** after saving the variables. Existing deployments do not receive environment changes.
+5. Open the new deployment and send a message in the AI Digital Twin.
+
+Keep the API key in `.env.local` locally and Vercel's environment settings in production. Never commit it or prefix it with `NEXT_PUBLIC_`. `.env.local` is ignored by Git and is not uploaded through a Git deployment. If Groq returns a usage-limit error, check your account's limits in Groq Console. Supported models are listed in [Groq's model documentation](https://console.groq.com/docs/models).
 
 ---
 

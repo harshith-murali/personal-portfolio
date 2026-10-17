@@ -115,34 +115,25 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Support Groq (free 14,400 req/day, ultra-fast) or Hugging Face
-    const groqApiKey = process.env.GROQ_API_KEY;
-    const hfApiKey = process.env.HF_API_KEY;
+    const groqApiKey = process.env.GROQ_API_KEY?.trim();
 
-    let client: OpenAI;
-    let modelName: string;
-
-    if (groqApiKey) {
-      client = new OpenAI({
-        apiKey: groqApiKey,
-        baseURL: "https://api.groq.com/openai/v1",
-      });
-      modelName = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
-    } else if (hfApiKey) {
-      client = new OpenAI({
-        apiKey: hfApiKey,
-        baseURL: process.env.HF_BASE_URL || "https://router.huggingface.co/v1",
-      });
-      modelName = process.env.HF_MODEL || "Qwen/Qwen2.5-72B-Instruct";
-    } else {
+    if (!groqApiKey) {
       return NextResponse.json(
         {
           error:
-            "AI service key not configured. Please set GROQ_API_KEY (recommended free provider) or HF_API_KEY in your environment variables.",
+            "AI chat is not configured. Set GROQ_API_KEY in Vercel's Production environment variables and redeploy.",
         },
         { status: 500 }
       );
     }
+
+    const client = new OpenAI({
+      apiKey: groqApiKey,
+      baseURL: "https://api.groq.com/openai/v1",
+      timeout: 20000,
+      maxRetries: 1,
+    });
+    const modelName = process.env.GROQ_MODEL?.trim() || "openai/gpt-oss-20b";
 
     // Load PDF truth source & JSON backup
     const pdfText = await getPdfProfileText();
@@ -170,7 +161,10 @@ STRICT RULES & CONSTRAINTS:
 3. IF ASKED SOMETHING UNKNOWN or not specified in your truth source, ALWAYS answer exactly: "I don't have enough information to answer that."
 4. NEVER hallucinate, guess, or invent any experience, projects, skills, or background not explicitly present in your truth source.
 5. If a visitor asks to hire you, contact you, get in touch, or requests an interview, politely ask for their details (Name, Company, Email, and Reason for contacting). When they provide these, USE THE 'save_recruiter_lead' tool to save their details, and confirm to them that their message has been logged and you will respond to their email promptly.
-6. Keep responses concise, well-structured, and easy to read. Use bullet points or code snippets where appropriate.`;
+6. Format every reply as clean Markdown for a narrow chat window. Start with a brief direct answer. For longer project explanations, use short headings (### Overview, ### Tech stack, ### Highlights) separated by blank lines.
+7. Use normal paragraphs for prose and '- ' only for actual list items. Never prefix a heading, paragraph, or blank line with a bullet. Write bold text with balanced pairs of double asterisks, such as **Frontend**.
+8. Prefer concise labeled bullets for a technology stack (for example '- **Frontend:** React and Three.js.'). Only use a Markdown table when the visitor explicitly asks for a table or comparison; include a header and separator row.
+9. Use descriptive Markdown links such as [Live demo](https://example.com) and [Source code](https://github.com/example/repo). Keep most replies under 180 words unless the visitor asks for more detail. Do not wrap an entire reply in a code fence.`;
 
     // Format conversation history (OpenAI-compatible)
     const formattedMessages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] =
@@ -254,11 +248,16 @@ STRICT RULES & CONSTRAINTS:
 
           controller.close();
         } catch (err: any) {
-          console.error("AI Model Stream Error:", err);
+          console.error("Groq stream failed:", {
+            status: err?.status,
+            code: err?.code,
+          });
+          const errorMessage =
+            err?.status === 429
+              ? "AI chat is busy or has reached its usage limit. Please try again later."
+              : "AI chat is temporarily unavailable. Please try again shortly or use the contact form.";
           controller.enqueue(
-            encoder.encode(
-              `\n[Error: Unable to connect to AI Twin service (${err?.message || "Unknown error"}).]`
-            )
+            encoder.encode(`\n[Error: ${errorMessage}]`)
           );
           controller.close();
         }
