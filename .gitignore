@@ -5,6 +5,7 @@ node_modules/
 dist/
 build/
 *.log
+*.tsbuildinfo
 .DS_Store
 .vscode/
 .idea/
