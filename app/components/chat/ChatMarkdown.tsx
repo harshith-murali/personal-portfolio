@@ -34,13 +34,16 @@ export function ChatMarkdown({ content }: { content: string }) {
             </a>
           ) : <span>{children}</span>,
           table: ({ children }) => (
-            <div role="region" aria-label="Response table" tabIndex={0}
-              className="my-4 max-w-full overflow-x-auto rounded-lg border border-zinc-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400">
-              <table className="w-full border-collapse text-left text-xs leading-5">{children}</table>
+            <div className="my-4 min-w-0 max-w-full">
+              <p className="!mb-2 !mt-0 text-[11px] leading-4 text-zinc-400">Scroll horizontally to view all columns ↔</p>
+              <div role="region" aria-label="Response table, scroll horizontally to view all columns" tabIndex={0}
+                className="max-w-full overflow-x-auto overscroll-x-contain rounded-lg border border-zinc-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400">
+                <table className="w-max min-w-full table-auto border-collapse text-left text-xs leading-5 [overflow-wrap:normal] [word-break:normal]">{children}</table>
+              </div>
             </div>
           ),
-          th: ({ children }) => <th className="border-b border-zinc-700 bg-zinc-800 px-3 py-2 align-top font-semibold text-zinc-100">{children}</th>,
-          td: ({ children }) => <td className="border-b border-zinc-800 px-3 py-2 align-top">{children}</td>,
+          th: ({ children }) => <th className="min-w-[10rem] whitespace-nowrap border-b border-zinc-700 bg-zinc-800 px-3 py-2 align-top font-semibold text-zinc-100">{children}</th>,
+          td: ({ children }) => <td className="min-w-[10rem] max-w-[20rem] whitespace-normal border-b border-zinc-800 px-3 py-2 align-top [overflow-wrap:break-word]">{children}</td>,
           code: ({ children, className }) => (
             <code className={className || "rounded border border-zinc-700/60 bg-zinc-800 px-1 py-0.5 font-mono text-xs text-cyan-300"}>{children}</code>
           ),
