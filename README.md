@@ -1,280 +1,139 @@
-# Harshith M - Premium Portfolio Website
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js_15-black?style=for-the-badge&logo=next.js&logoColor=white" />
+  <img src="https://img.shields.io/badge/React_19-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/TailwindCSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
+  <img src="https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white" />
+  <img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black" />
+</p>
 
-A production-grade, animated portfolio website built with **Next.js 15**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
+# Harshith M — AI & Full Stack Systems Portfolio
 
-## 🎯 Features
+> A production-grade, animated portfolio website featuring an **interactive AI Digital Twin chatbot**, 3D interactive cards, live project showcases, and smooth Framer Motion micro-interactions.
 
-- **Animated Hero Section** with dynamic role rotation
-- **Smooth Scroll Animations** with Framer Motion
-- **Responsive Design** optimized for all devices
-- **Dark Mode** with premium gradient backgrounds
-- **SEO Optimized** with metadata and OpenGraph tags
-- **Performance Optimized** with code splitting and lazy loading
-- **Accessible** with semantic HTML and ARIA attributes
-- **Interactive Components** with hover effects and transitions
-- **Scroll Progress Bar** with gradient colors
-- **Back-to-Top Button** with smooth scrolling
-- **Active Navigation Highlight** based on scroll position
+🔗 **Live Demo:** [harshith-portfolio.vercel.app](https://harshith-portfolio.vercel.app)  
+📦 **GitHub Profile:** [github.com/harshith-murali](https://github.com/harshith-murali)
 
-## 📂 Project Structure
+---
 
-```
-├── app/
-│   ├── components/
-│   │   ├── About.tsx
-│   │   ├── Achievements.tsx
-│   │   ├── BackToTop.tsx
-│   │   ├── Contact.tsx
-│   │   ├── Experience.tsx
-│   │   ├── Footer.tsx
-│   │   ├── Hero.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Projects.tsx
-│   │   ├── ScrollProgress.tsx
-│   │   └── Skills.tsx
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx
-├── lib/
-│   └── data.ts
-├── types/
-│   └── index.ts
-├── package.json
-├── tsconfig.json
-├── tailwind.config.ts
-├── postcss.config.js
-├── next.config.js
-└── README.md
-```
+## 🌟 Key Features
+
+### 🤖 AI Digital Twin Chatbot
+- **Interactive Conversational AI**: Recruiter and visitor assistant powered by Hugging Face Inference Router (`Qwen/Qwen2.5-72B-Instruct`).
+- **Grounded Resume Context**: Answers questions about technical skills, project architectures, hackathon achievements, and education with high accuracy.
+- **Interactive Suggestion Chips**: One-click quick prompts (Bharat Quest, Quantro, tech stack, resume summary).
+- **Graceful Offline/Fallback Mode**: Continues to provide structured profile responses if API quotas or keys are unavailable.
+
+### 🎨 Visual & Motion Design
+- **Framer Motion Animations**: Staggered fade-ins, spring physics, and viewport scroll reveals.
+- **Card Flip & Mouse Glow**: Custom 3D perspective tilts and dynamic cursor radial gradient lighting (`MouseEffectCard`, `CardFlip`).
+- **Dynamic Typewriter**: Animated role switcher with text transitions.
+- **Scroll Progress & Floating Actions**: Real-time gradient scroll progress bar and smooth back-to-top navigation.
+- **Theme Support**: High-contrast dark mode with cyan and violet accents.
+
+### 📂 Centralized Data Architecture
+- All content (profile, projects, work experience, hackathons, LeetCode milestones, and skill taxonomies) is centrally configured and maintained in `data/profile.json`.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animation**: [Framer Motion](https://www.framer.com/motion/)
-- **Package Manager**: npm or yarn
+| Layer | Technology |
+|---|---|
+| **Framework** | Next.js 15 (App Router), React 19 |
+| **Language** | TypeScript (strict mode) |
+| **Styling** | Tailwind CSS + CSS custom properties |
+| **Animations** | Framer Motion |
+| **Icons** | Lucide React |
+| **AI Runtime** | OpenAI SDK pointing to Hugging Face Router (`router.huggingface.co/v1`) |
+| **Email Dispatch** | Nodemailer |
+| **Deployment** | Vercel Edge Platform |
+
+---
+
+## 📂 Project Structure
+
+```text
+portfolio-website/
+├── app/
+│   ├── api/
+│   │   ├── chat/route.ts         # Streaming AI Digital Twin chat endpoint
+│   │   └── contact/route.ts      # Nodemailer contact submission endpoint
+│   ├── components/
+│   │   ├── chat/                 # AI ChatInterface, SuggestionChips, ChatDrawer
+│   │   ├── Hero.tsx              # Animated hero section with typewriter title
+│   │   ├── About.tsx             # Bio, education, and career philosophy
+│   │   ├── Projects.tsx          # Featured full-stack & AI project showcases
+│   │   ├── Skills.tsx            # Categorized technical skill grid
+│   │   ├── Experience.tsx        # Timeline of professional and academic milestones
+│   │   ├── Achievements.tsx      # Hackathons, certifications, and awards
+│   │   ├── Contact.tsx           # Interactive contact form
+│   │   ├── CardFlip.tsx          # Interactive 3D card component
+│   │   ├── MouseEffectCard.tsx   # Dynamic mouse glow container
+│   │   └── Navbar.tsx            # Desktop & mobile responsive header
+│   ├── globals.css               # Design tokens, gradients, and scrollbars
+│   ├── layout.tsx                # Metadata, SEO tags, and root HTML layout
+│   └── page.tsx                  # Single-page assembly
+├── data/
+│   └── profile.json              # Single source of truth for all portfolio data
+└── package.json
+```
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- **Node.js** ≥ 18.x
+- **npm** or **yarn**
 
-- Node.js 18+ installed
-- npm or yarn package manager
-
-### Installation
-
-1. **Clone the repository** (or navigate to the project directory)
-
+### 1. Clone & Install
 ```bash
-cd portfolio-website
-```
-
-2. **Install dependencies**
-
-```bash
+git clone https://github.com/harshith-murali/harshith-portfolio.git
+cd harshith-portfolio
 npm install
 ```
 
-Or with yarn:
+### 2. Configure Environment Variables
+Create `.env.local` in the project root:
+```env
+# AI Digital Twin Chat (Hugging Face Inference)
+HUGGINGFACE_API_KEY="hf_..."
+HUGGINGFACE_MODEL="Qwen/Qwen2.5-72B-Instruct"
 
-```bash
-yarn install
+# Optional Contact Form Email Dispatch
+EMAIL_USER="your-email@gmail.com"
+EMAIL_PASS="your-app-password"
+EMAIL_TO="your-email@gmail.com"
 ```
 
-3. **Start the development server**
-
+### 3. Run Development Server
 ```bash
 npm run dev
+# Running at http://localhost:3000
 ```
 
-Or with yarn:
+---
+
+## 🧪 Validation & Production Build
 
 ```bash
-yarn dev
+npm run type-check    # TypeScript validation (tsc --noEmit)
+npm run lint          # Next.js ESLint validation
+npm run build         # Next.js production build bundle
+npm start             # Start production server
 ```
 
-4. **Open in browser**
-
-Navigate to [http://localhost:3000](http://localhost:3000) to see your portfolio!
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-Or with yarn:
-
-```bash
-yarn build
-yarn start
-```
-
-## 📝 Customization
-
-### Update Personal Information
-
-Edit `lib/data.ts` to customize:
-
-```typescript
-export const personalInfo = {
-  name: 'Your Name',
-  title: 'Your Title',
-  bio: 'Your bio',
-  email: 'your@email.com',
-  socials: {
-    github: 'https://github.com/yourusername',
-    linkedin: 'https://linkedin.com/in/yourprofile',
-    leetcode: 'https://leetcode.com/yourprofile',
-  },
-};
-```
-
-### Update Skills, Projects, and Experience
-
-All content is managed in `lib/data.ts`:
-
-- `skills` - Your technical skills
-- `projects` - Your portfolio projects
-- `experience` - Your work experience and education
-- `achievements` - Your achievements and certifications
-- `about` - Your about section content
-
-### Customize Colors
-
-Edit `tailwind.config.ts` to change accent colors:
-
-```typescript
-accent: {
-  primary: '#00d9ff',    // Cyan
-  secondary: '#7c3aed',  // Purple
-  tertiary: '#ec4899',   // Pink
-},
-```
-
-### Modify Animations
-
-Framer Motion animations are configured in individual components. Adjust:
-
-- Animation timing (duration, delay)
-- Spring effects
-- Stagger effects
-- Variants for different states
-
-## 🎨 Design System
-
-### Color Palette
-
-- **Dark Background**: `#0f0f0f` to `#2a2a2a`
-- **Primary Accent**: `#00d9ff` (Cyan)
-- **Secondary Accent**: `#7c3aed` (Purple)
-- **Tertiary Accent**: `#ec4899` (Pink)
-- **Text**: Grayscale from `#808080` to `#f0f0f0`
-
-### Typography
-
-- **Headings**: 600-700 font weight
-- **Body**: 400-500 font weight
-- **Line Height**: 1.2 (headings), 1.6 (body)
-
-### Spacing
-
-Using Tailwind's default scale (4px base unit) with custom extensions in the config.
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
-
-All components are mobile-first and fully responsive.
-
-## ♿ Accessibility
-
-- **Semantic HTML** for screen readers
-- **ARIA labels** on interactive elements
-- **Keyboard navigation** support
-- **Focus styles** for accessibility
-- **Color contrast** meets WCAG AA standards
-- **Form labels** properly associated with inputs
-
-## 🔍 SEO
-
-The site includes:
-
-- Metadata tags (title, description, keywords)
-- OpenGraph tags for social sharing
-- Twitter Card tags
-- Sitemap-ready structure
-- Semantic HTML markup
-- Mobile-friendly meta viewport
-- Canonical URLs
-
-## 📊 Performance
-
-- **Code Splitting**: Automatic via Next.js
-- **Image Optimization**: Next.js Image component ready
-- **CSS-in-JS**: Tailwind's minimal CSS output
-- **Animation Performance**: GPU-accelerated Framer Motion
-- **Lazy Loading**: IntersectionObserver for scroll animations
-
-## 🚀 Deployment
-
-### Deploy to Vercel (Recommended)
-
-1. Push to GitHub
-2. Connect to Vercel
-3. Auto-deploy on push
-
-```bash
-npm run build
-```
-
-### Deploy to Other Platforms
-
-The site is a static Next.js app and can be deployed to:
-
-- Netlify
-- GitHub Pages
-- AWS Amplify
-- Any static hosting platform
-
-## 📄 Environment Variables
-
-No environment variables are required for the basic setup. All data is configured in `lib/data.ts`.
-
-For optional features (like backend contact form), add environment variables in `.env.local`:
-
-```bash
-cp .env.example .env.local
-```
-
-## 🤝 Contributing
-
-Feel free to fork and customize this portfolio template for your own use.
-
-## 📄 License
-
-MIT License - feel free to use this template for your portfolio.
+---
 
 ## 👨‍💻 Author
 
 **Harshith M**
-
 - GitHub: [@harshith-murali](https://github.com/harshith-murali)
 - LinkedIn: [harshith-m-dev](https://linkedin.com/in/harshith-m-dev)
 - LeetCode: [geekycoder11](https://leetcode.com/u/geekycoder11)
-- Email: mharshith200@gmail.com
-
-## 🙏 Acknowledgments
-
-- [Next.js](https://nextjs.org/) for the amazing framework
-- [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS
-- [Framer Motion](https://www.framer.com/motion/) for smooth animations
-- Inspired by award-winning design practices from Awwwards
 
 ---
 
-**Built with ❤️ using Next.js, TypeScript, and Framer Motion**
+## 📄 License
+MIT License. Built with Next.js, TypeScript, and Framer Motion.
