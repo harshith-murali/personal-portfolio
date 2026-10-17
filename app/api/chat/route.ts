@@ -5,9 +5,6 @@ import path from "path";
 
 export const runtime = "nodejs";
 
-const HF_MODEL = process.env.HF_MODEL || "Qwen/Qwen2.5-72B-Instruct";
-const HF_BASE_URL = process.env.HF_BASE_URL || "https://router.huggingface.co/v1";
-
 // Extract raw text from public/profile.pdf
 async function getPdfProfileText() {
   try {
@@ -118,11 +115,31 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const apiKey = process.env.HF_API_KEY;
+    // Support Groq (free 14,400 req/day, ultra-fast) or Hugging Face
+    const groqApiKey = process.env.GROQ_API_KEY;
+    const hfApiKey = process.env.HF_API_KEY;
 
-    if (!apiKey) {
+    let client: OpenAI;
+    let modelName: string;
+
+    if (groqApiKey) {
+      client = new OpenAI({
+        apiKey: groqApiKey,
+        baseURL: "https://api.groq.com/openai/v1",
+      });
+      modelName = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
+    } else if (hfApiKey) {
+      client = new OpenAI({
+        apiKey: hfApiKey,
+        baseURL: process.env.HF_BASE_URL || "https://router.huggingface.co/v1",
+      });
+      modelName = process.env.HF_MODEL || "Qwen/Qwen2.5-72B-Instruct";
+    } else {
       return NextResponse.json(
-        { error: "HF_API_KEY is not configured in environment variables." },
+        {
+          error:
+            "AI service key not configured. Please set GROQ_API_KEY (recommended free provider) or HF_API_KEY in your environment variables.",
+        },
         { status: 500 }
       );
     }
@@ -155,12 +172,7 @@ STRICT RULES & CONSTRAINTS:
 5. If a visitor asks to hire you, contact you, get in touch, or requests an interview, politely ask for their details (Name, Company, Email, and Reason for contacting). When they provide these, USE THE 'save_recruiter_lead' tool to save their details, and confirm to them that their message has been logged and you will respond to their email promptly.
 6. Keep responses concise, well-structured, and easy to read. Use bullet points or code snippets where appropriate.`;
 
-    const hf = new OpenAI({
-      apiKey,
-      baseURL: HF_BASE_URL,
-    });
-
-    // Format conversation history for the HF router (OpenAI-compatible)
+    // Format conversation history (OpenAI-compatible)
     const formattedMessages: OpenAI.Chat.Completions.ChatCompletionMessageParam[] =
       [
         { role: "system", content: systemPrompt },
@@ -178,8 +190,8 @@ STRICT RULES & CONSTRAINTS:
     const stream = new ReadableStream({
       async start(controller) {
         try {
-          const responseStream = await hf.chat.completions.create({
-            model: HF_MODEL,
+          const responseStream = await client.chat.completions.create({
+            model: modelName,
             max_tokens: 1024,
             messages: formattedMessages,
             tools: [recruiterTool],
@@ -242,7 +254,7 @@ STRICT RULES & CONSTRAINTS:
 
           controller.close();
         } catch (err: any) {
-          console.error("Hugging Face Stream Error:", err);
+          console.error("AI Model Stream Error:", err);
           controller.enqueue(
             encoder.encode(
               `\n[Error: Unable to connect to AI Twin service (${err?.message || "Unknown error"}).]`
